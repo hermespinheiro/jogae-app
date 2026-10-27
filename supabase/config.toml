@@ -1,0 +1,10 @@
+project_id = "jogae-app"
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+
+[auth.email]
+enable_signup = false
+enable_confirmations = true
+max_frequency = "1m"

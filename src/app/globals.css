@@ -1,0 +1,12 @@
+:root { --primary: #6750a4; --on-primary: #fff; --surface: #fffbfe; --error: #b3261e; --space-md: 1rem; --radius-md: .75rem; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface); color: #1c1b1f; font-family: system-ui, sans-serif; }
+main, section { width: min(100% - 2rem, 42rem); margin: 0 auto; padding: 1.5rem 0; }
+form { display: grid; gap: .75rem; }
+.ui-field { display: grid; gap: .35rem; font-weight: 600; }
+.ui-input { width: 100%; min-height: 3rem; padding: .75rem 1rem; border: 1px solid #79747e; border-radius: var(--radius-md); font: inherit; }
+.ui-input:focus, button:focus-visible, a:focus-visible { outline: 3px solid #9a82db; outline-offset: 2px; }
+.ui-button, button { min-height: 3rem; padding: .75rem 1.25rem; border: 0; border-radius: 999px; background: var(--primary); color: var(--on-primary); font: inherit; cursor: pointer; }
+button:disabled { opacity: .55; cursor: wait; }
+.ui-alert { color: var(--error); padding: .75rem; }
+@media (min-width: 600px) { main, section { padding-top: 3rem; } }

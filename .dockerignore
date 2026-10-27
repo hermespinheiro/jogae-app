@@ -1,0 +1,34 @@
+# Version control and local agent metadata
+.git/
+.github/
+.agents/
+.codex/
+.specify/
+
+# Dependencies and generated artifacts
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+.turbo/
+
+# Local environment and secrets
+.env*
+!.env.example
+*.key
+*.pem
+
+# Development-only files not copied by the Dockerfile
+tests/
+specs/
+docs/
+supabase/.temp/
+supabase/.branches/
+
+# Logs and local metadata
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,30 @@
+{
+  "name": "jogae-app",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "auth:bootstrap": "tsx scripts/auth-bootstrap.ts",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "next lint",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "latest",
+    "argon2": "latest",
+    "next": "latest",
+    "nodemailer": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/nodemailer": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest",
+    "tsx": "latest"
+  }
+}
