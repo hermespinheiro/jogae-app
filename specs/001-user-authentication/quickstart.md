@@ -31,3 +31,7 @@
 - Testes de segurança para hashes, cookies, tokens, rate limiting e ausência de segredos em logs/respostas.
 - Testes de acessibilidade e end-to-end em viewport móvel e desktop.
 - Build de produção em infraestrutura compatível com as variáveis documentadas.
+
+## Resultado da última validação
+
+Em 2026-10-27, o build Docker, `npm run typecheck`, verificação de lint baseada em TypeScript e a suíte automatizada foram executados com sucesso. A suíte apresentou 24 testes aprovados e 0 falhas. O build ainda emite somente o aviso de migração futura de `middleware` para `proxy` no Next.js.

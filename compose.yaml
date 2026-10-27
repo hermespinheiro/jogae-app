@@ -34,6 +34,14 @@ services:
       AUTH_MASTER_USERNAME: ${AUTH_MASTER_USERNAME:-}
       AUTH_MASTER_EMAIL: ${AUTH_MASTER_EMAIL:-}
       AUTH_MASTER_PASSWORD: ${AUTH_MASTER_PASSWORD:-}
+      APP_URL: ${APP_URL:-http://localhost:3000}
+      DATABASE_URL: ${DATABASE_URL:-}
+      EMAIL_FROM: ${EMAIL_FROM:-}
+      EMAIL_HOST: ${EMAIL_HOST:-}
+      EMAIL_PORT: ${EMAIL_PORT:-587}
+      EMAIL_USER: ${EMAIL_USER:-}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD:-}
+      EMAIL_ENCRYPTION: ${EMAIL_ENCRYPTION:-tls}
     restart: unless-stopped
     healthcheck:
       test:

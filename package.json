@@ -7,14 +7,15 @@
     "auth:bootstrap": "tsx scripts/auth-bootstrap.ts",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "lint": "next lint",
-    "test": "node --test"
+    "lint": "tsc --noEmit",
+    "test": "tsx --tsconfig tsconfig.json --test tests/**/*.test.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "latest",
     "argon2": "latest",
     "next": "latest",
     "nodemailer": "latest",
+    "postgres": "latest",
     "react": "latest",
     "react-dom": "latest",
     "zod": "latest"

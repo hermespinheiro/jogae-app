@@ -11,6 +11,10 @@ create or replace function public.app_role() returns text language sql stable as
   select nullif(current_setting('app.role', true), '')
 $$;
 
+create or replace function public.app_session_id() returns uuid language sql stable as $$
+  select nullif(current_setting('app.session_id', true), '')::uuid
+$$;
+
 create policy users_self_or_admin on public.users for select using (
   id = public.app_user_id() or public.app_role() = 'Administrador'
 );

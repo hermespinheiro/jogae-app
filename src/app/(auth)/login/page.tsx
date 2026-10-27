@@ -3,6 +3,7 @@
 import { FormEvent, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Alert, Button, FormField, Input, LoadingState } from '@/components/ui';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,12 +39,11 @@ export default function LoginPage() {
   }
 
   return (
-    <main>
-      <h1>Entrar</h1>
-      <p>Use seu email ou username e senha.</p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="identifier">Email ou username</label>
-        <input
+    <main className="auth-shell"><section className="auth-card" aria-labelledby="login-title">
+      <p className="eyebrow">Jogaê</p><h1 id="login-title">Entrar</h1>
+      <p className="auth-subtitle">Use seu email ou username e senha.</p>
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <FormField label="Email ou username"><Input
           id="identifier"
           name="identifier"
           type="text"
@@ -51,10 +51,8 @@ export default function LoginPage() {
           required
           value={identifier}
           onChange={(event) => setIdentifier(event.target.value)}
-        />
-
-        <label htmlFor="password">Senha</label>
-        <input
+        /></FormField>
+        <FormField label="Senha"><Input
           id="password"
           name="password"
           type="password"
@@ -62,14 +60,11 @@ export default function LoginPage() {
           required
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-        />
-
-        {error && <p role="alert">{error}</p>}
-        <button type="submit" disabled={loading}>
-          {loading ? 'Entrando…' : 'Entrar'}
-        </button>
+        /></FormField>
+        {error && <Alert>{error}</Alert>}
+        <Button type="submit" disabled={loading}>{loading ? <LoadingState /> : 'Entrar'}</Button>
       </form>
       <Link href="/forgot-password">Esqueci minha senha</Link>
-    </main>
+    </section></main>
   );
 }

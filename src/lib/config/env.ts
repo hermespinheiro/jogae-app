@@ -24,3 +24,21 @@ export function getSmtpConfig(env: NodeJS.ProcessEnv = process.env): SmtpConfig 
   if (encryption !== 'tls' && encryption !== 'ssl' && encryption !== 'none') throw new Error('SMTP encryption is invalid');
   return { host, port, user, password, from, encryption };
 }
+
+export function getDatabaseUrl(env: NodeJS.ProcessEnv = process.env): string {
+  const value = env.DATABASE_URL?.trim();
+  if (!value) throw new Error('DATABASE_URL is not configured');
+  return value;
+}
+
+export function getAppUrl(env: NodeJS.ProcessEnv = process.env): string {
+  const value = env.APP_URL?.trim();
+  if (!value) throw new Error('APP_URL is not configured');
+  try {
+    const url = new URL(value);
+    if (!['http:', 'https:'].includes(url.protocol)) throw new Error();
+    return url.toString().replace(/\/$/, '');
+  } catch {
+    throw new Error('APP_URL is invalid');
+  }
+}

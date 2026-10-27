@@ -21,7 +21,7 @@ export async function revokeCurrentSession() {
 export async function getCurrentSession() {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return null;
-  const { data } = await database().from('sessions').select('id,user_id,expires_at,revoked_at').eq('token_hash', hashToken(token)).maybeSingle();
+  const { data } = await database().from('sessions').select('id,user_id,expires_at,revoked_at,users(status,must_change_password,role)').eq('token_hash', hashToken(token)).maybeSingle();
   if (!data || data.revoked_at || new Date(data.expires_at) <= new Date()) return null;
   return data;
 }
